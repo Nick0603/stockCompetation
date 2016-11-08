@@ -27,7 +27,6 @@ $data = $conn->query("
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="5;URL=index.php">"
     <title>StockCompetation</title>
 
     <!-- Bootstrap core CSS -->
@@ -82,18 +81,18 @@ $data = $conn->query("
 
               <div class="form-group form-group-lg">
                 <label class="col-sm-4 control-label label label-danger">目前第 一 名：</label>
-                <label class="col-sm-2 control-label ">第<?php echo $Accounts[0]['teamID']; ?>組</label>
-                <label class="col-sm-2 control-label"><?php echo $Accounts[0]['Ratio']."%"; ?></label>
+                <label id ='firstRankTeamID' class="col-sm-2 control-label"></label>
+                <label id ='firstRankRatio' class="col-sm-2 control-label "></label>
               </div>
               <div class="form-group form-group-lg">
                 <label class="col-sm-4 control-label label label-danger">目前第 二 名：</label>
-                <label class="col-sm-2 control-label">第<?php echo $Accounts[1]['teamID']; ?>組</label>
-                <label class="col-sm-2 control-label"><?php echo $Accounts[1]['Ratio']."%"; ?></label>
+                <label id ='secondRankTeamID' class="col-sm-2 control-label "></label>
+                <label id ='secondRankRatio' class="col-sm-2 control-label "></label>
               </div>
               <div class="form-group form-group-lg">
                 <label class="col-sm-4 control-label label label-danger">目前第 三 名：</label>
-                <label class="col-sm-2 control-label">第<?php echo $Accounts[2]['teamID']; ?>組</label>
-                <label class="col-sm-2 control-label"><?php echo $Accounts[2]['Ratio']."%"; ?></label>
+                <label id ='thirdRankTeamID' class="col-sm-2 control-label"></label>
+                <label id ='thirdRankRatio' class="col-sm-2 control-label"></label>
               </div>
             </div>
           </div>
@@ -102,7 +101,7 @@ $data = $conn->query("
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header"　id="check_result">隊伍排名</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
               <thead id="table_head">
                 <tr>
                   <td>排名</td>
@@ -112,23 +111,6 @@ $data = $conn->query("
                 </tr>
               </thead>
               <tbody id="table_body">
-                <?php
-                  $i = 1;
-                  foreach($Accounts as $Account){
-                    echo "<tr>";
-                      echo  "<td>".$i++."</td>";
-                      echo "<td>".$Account['teamID']."</td>";
-                      echo "<td><a href='https://www.cmoney.tw/vt/account-profile-info.aspx?account=".$Account['AccountIDs']."'>可連結但新未新增名字</td>";
-                      if ($Account['Ratio'] == -1000.0){
-                        echo "<td>無法讀取</td>";
-                      }else{
-                        $Ratio = number_format($Account['Ratio'],2);
-                        echo "<td>".$Ratio."%</td>";
-                      }
-                      
-                    echo "</tr>";
-                  }
-                ?>
               </tbody>
             </table>
           </div>
