@@ -1,27 +1,7 @@
- <?php
-
-$dbhost = 'localhost'; #sql304.byethost5.com
-$dbname = 'stockcompetition';#b5_19130911_stockcompetation
-$dbuser = 'root';#b5_19130911
-$dbpwd = 'root';#a4z$m^4x6t
-
-$conn = new PDO('mysql:host='.$dbhost.';dbname='.$dbname.';port=3306',$dbuser,$dbpwd);
-$conn->exec('set names utf8');
-$data = $conn->query(" 
-  SELECT teams.*,group_concat(Accounts.AccountID separator ',')  as AccountIDs
-  FROM teams
-  INNER JOIN Accounts on Accounts.teamID = teams.teamID
-  GROUP BY teams.teamID
-  ");
-
-  $Accounts = $data->fetchAll();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="refresh" content="5;URL=status.php">"
     <title>StockCompetation</title>
 
     <!-- Bootstrap core CSS -->
@@ -77,21 +57,6 @@ $data = $conn->query("
                 </tr>
               </thead>
               <tbody id="table_body">
-                <?php
-                  foreach($Accounts as $Account){
-                    $Ratio = number_format($Account['Ratio'],2);
-                    echo "<tr>";
-                      echo "<td>".$Account['teamID']."</td>";
-                      echo "<td><a href='https://www.cmoney.tw/vt/account-profile-info.aspx?account=".$Account['AccountIDs']."'>可連結但新未新增名字</td>";
-                      if($Account['Ratio'] == -1000){
-                        echo "<td>無法讀取</td>";
-                      }else{
-                        echo "<td>".$Ratio."%</td>";
-                      }
-                      echo  "<td>待新增</td>";
-                    echo "</tr>";
-                  }
-                ?>
               </tbody>
             </table>
           </div>

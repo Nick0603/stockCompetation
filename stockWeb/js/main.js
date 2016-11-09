@@ -76,11 +76,10 @@ function updateIndexPage(data){
         }else{
             var displayClass = 'success';
         }
-
         var body_item = "";
         body_item += "<td>" + (i+1) +"</td>"; 
         body_item += "<td>" + data[i]['teamID'] +"</td>";
-        body_item += "<td ><a href = " + stockUrl + data[i]['teamID'] +">" + data[i]['Name'] +"</td>";
+        body_item += "<td ><a href = " + stockUrl + data[i]['AccountIDs'] +">" + data[i]['Name'] +"</td>";
 
         body_item += "<td class = 'alert alert-" + displayClass +  " '>" + data[i]['Ratio'] + '%' +"</td>";
         var body_data = $("<tr></tr>").html(body_item); 
@@ -120,7 +119,7 @@ function updateStatusPage(data){
 
         var body_item = "";
         body_item += "<td>" + data[i]['teamID'] +"</td>";
-        body_item += "<td><a href = " + stockUrl + data[i]['teamID'] +">" + data[i]['Name'] +"</td>";
+        body_item += "<td><a href = " + stockUrl + data[i]['AccountIDs'] +">" + data[i]['Name'] +"</td>";
         body_item += "<td class = 'alert alert-" + displayClass +  " '>" + data[i]['Ratio'] + '%' +"</td>";
         body_item += "<td>待下版本</td>";
         var body_data = $("<tr></tr>").html(body_item); 
