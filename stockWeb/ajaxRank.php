@@ -1,9 +1,9 @@
 <?php
 
-$dbhost = 'localhost'; #sql304.byethost5.com
-$dbname = 'stockcompetition';#b5_19130911_stockcompetation
-$dbuser = 'root';#b5_19130911
-$dbpwd = 'root';#a4z$m^4x6t
+$dbhost = 'localhost';
+$dbname = 'stockcompetition';
+$dbuser = 'root';
+$dbpwd = 'root';
 
 $conn = new PDO('mysql:host='.$dbhost.';dbname='.$dbname.';port=3306',$dbuser,$dbpwd);
 $conn->exec('set names utf8');
@@ -25,4 +25,6 @@ $data = $conn->query("
 	}
 
   echo json_encode( $userData );
+
+
 ?>

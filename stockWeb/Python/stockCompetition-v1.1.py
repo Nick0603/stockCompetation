@@ -56,6 +56,10 @@ Amount = 12;
 
 AccountIds = [212876,211616,211022,216339,211135,212882,[212988,212848,212987],212459,211283,211024,211044,211020]
 
+delayTime = int( input ('Please input the Update delayTime ( T > 5s ):  ') )
+while(delayTime < 5):
+    delayTime = int( input ('Please input the Update delayTime ( T > 5s ):  '))
+    
 while(1):
     Accounts = []
     catchAccountDate(Accounts,AccountIds)
@@ -64,4 +68,4 @@ while(1):
     print("----------------------------------------")
     displayNowTime()
     
-    time.sleep(5)
+    time.sleep(delayTime)

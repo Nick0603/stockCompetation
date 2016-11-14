@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>StockCompetation</title>
+    <title>StockCompetition</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -47,7 +47,7 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h2 class="sub-header"　id="check_result">投資狀況</h2>
           <div class="table-responsive">
-            <table class="table table-striped">
+            <table class="table">
               <thead id="table_head">
                 <tr>
                   <td>組別</td>
