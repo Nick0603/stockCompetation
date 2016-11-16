@@ -15,7 +15,7 @@ def UpdateRatio(Accounts):
 
     try:
         for Account in Accounts:
-            update_sql = "Update  teams Set Ratio = {} Where teamID = {}".format(Account.ratio,Account.teamId)
+            update_sql = "Update  teams Set Ratio = {} ,Name = '{}' Where teamID = {}".format(Account.ratio,Account.Name,Account.teamId)
             cursor.execute(update_sql)
     except mysql.connector.Error as err:
         print("Update  table 'teamRatio' failed.")
